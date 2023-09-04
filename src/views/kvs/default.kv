@@ -1,0 +1,68 @@
+<Default>:
+    name: 'default'
+    md_bg_color: "#fea625"
+    FloatLayout:
+        Image:
+            pos_hint: {'center_x': .24,'center_y': .89}
+            source: 'src/imgs/delivery.png'
+            size_hint: .45 , .45
+        Image:
+            source: 'src/imgs/banner.png'
+            pos_hint: {'center_y':.57}
+        MDLabel:
+            text: "Pronto para uma nova experiência de comunicação?"
+            color: "#f7f7f7"
+            halign: "center"
+            pos_hint: {'center_x':.5,'center_y':.29}
+            font_size: '20dp'
+        MDLabel:
+            text: ""
+            md_bg_color: "#f7f7f7"
+            color: "#f7f7f7"
+            halign: "center"
+            pos_hint: {'center_y':.0}
+            size_hint: 1, .17
+        MDTextButton:
+            text: "Próximo"
+            color: "#fea625"
+            font_size: '16dp'
+            halign: 'left'
+            size_hint: .27, .085
+            pos_hint: {'center_y':.043,'center_x':.87}
+            on_release: root.proxima_tela()
+        MDRectangleFlatIconButton:
+            icon: 'exit-run'
+            text: "Fechar"
+            color: "#fea625"
+            font_size: '16dp'
+            halign: 'center'
+            size_hint: .26, .085
+            line_color: 0, 0, 0, 0
+            pos_hint: {'center_y':.043,'center_x':.13}
+            on_release: root.fechar_app()
+        MDIconButton:
+            icon: 'chevron-right'
+            pos_hint: {'center_y':.044,'center_x':.93}
+            theme_icon_color: "Custom"
+            icon_color: "#fea625"
+            ripple_color: "#f7f7f7"
+            focus_color: "#fea625"
+            icon_size: "23dp"
+            focus_behavior: False
+            _no_ripple_effect: True
+            on_release: root.proxima_tela()
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#ffffff"
+            pos_hint: {'center_y':.15,'center_x':.55}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#ffffff"
+            pos_hint: {'center_y':.15,'center_x':.5}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#777777"
+            pos_hint: {'center_y':.15,'center_x':.45}

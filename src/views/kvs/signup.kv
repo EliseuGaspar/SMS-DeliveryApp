@@ -1,0 +1,176 @@
+<SignUp>:
+    name: 'Cadastrar'
+    md_bg_color: "#ffffff"
+    FloatLayout:
+        # Aqui Temos a estrutura do Header
+        MDLabel:
+            pos_hint: {'center_x': .55,'center_y': .92}
+            text: "Criar Uma Conta"
+            halign: "left"
+            color: "#ff7900"
+            font_size: "19dp"
+        # Apartir daqui comeca o formulário
+        MDLabel:
+            text: "Nº Telefone"
+            color: "#fea625"
+            font_size: "13.7dp"
+            pos_hint: {'center_x': .56,'center_y': .82}
+        MDLabel:
+            md_bg_color: "#fea725a9"
+            size_hint_x: .88
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': .49,'center_y': .75}
+        MDIcon:
+            icon: 'cellphone'
+            theme_icon_color: 'Custom'
+            color: '#fea625'
+            pos_hint: {'center_x': .1,'center_y': .743}
+        MDTextField:
+            id: telefone
+            pos_hint: {'center_x': .53,'center_y': .743}
+            size_hint_x: .78
+            size_hint_y: None
+            theme_bg_color: "Custom"
+            max_text_length: 9
+            max_length_text_color: "#fea625"
+            text_color_focus: "#ffffff"
+            line_color_focus: "#fea725a9"
+            line_color_normal: "#fea725a9"
+            radius: 0, 0, 0, 0
+            font_size: "16dp"
+            mode: "line"
+            active_line: False
+        MDLabel:
+            text: "Password"
+            color: "#fea625"
+            font_size: "13.7dp"
+            pos_hint: {'center_x': .56,'center_y': .68}
+        MDLabel:
+            md_bg_color: "#fea725a9"
+            size_hint_x: .88
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': .49,'center_y': .61}
+        MDIcon:
+            icon: 'lock-outline'
+            theme_icon_color: 'Custom'
+            color: '#fea625'
+            pos_hint: {'center_x': .1,'center_y': .61}
+        MDTextField:
+            id: senha
+            pos_hint: {'center_x': .53,'center_y': .61}
+            size_hint_x: .78
+            size_hint_y: None
+            theme_bg_color: "Custom"
+            max_length_text_color: "#fea625"
+            text_color_focus: "#ffffff"
+            line_color_focus: "#fea725a9"
+            line_color_normal: "#fea725a9"
+            radius: 0, 0, 0, 0
+            font_size: "16dp"
+            mode: "line"
+            active_line: False
+            password: True
+        MDLabel:
+            text: "Nome"
+            color: "#fea625"
+            font_size: "13.7dp"
+            pos_hint: {'center_x': .56,'center_y': .54}
+        MDLabel:
+            md_bg_color: "#fea725a9"
+            size_hint_x: .88
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': .49,'center_y': .47}
+        MDIcon:
+            icon: 'account-outline'
+            theme_icon_color: 'Custom'
+            color: '#fea625'
+            pos_hint: {'center_x': .1,'center_y': .465}
+        MDTextField:
+            id: nome
+            pos_hint: {'center_x': .53,'center_y': .465}
+            size_hint_x: .78
+            size_hint_y: None
+            theme_bg_color: "Custom"
+            max_length_text_color: "#fea625"
+            text_color_focus: "#ffffff"
+            line_color_focus: "#fea725a9"
+            line_color_normal: "#fea725a9"
+            radius: 0, 0, 0, 0
+            font_size: "16dp"
+            mode: "line"
+            active_line: False
+        MDCheckbox:
+            id: check
+            size_hint: None, None
+            size: dp(25), dp(25)
+            halign: 'center'
+            valign: 'center'
+            active: False
+            line_color: "#fea625"
+            line_color_focus: "#fea625"
+            line_color_normal: "#fea625"
+            color: "#fea625"
+            pos_hint: {'center_x': .09, 'center_y': .4}
+        MDTextButton:
+            text: "Eu li e concordo com os termos de Privacidade Politíca."
+            theme_text_color: "Custom"
+            text_color: "#fea625"
+            pos_hint: {'center_x': .55, 'center_y': .395}
+            font_size: "13dp"
+            size_hint_x: .8
+            on_release: root.mudar_estado_checkbox()
+        MDTextButton:
+            text: "Termos & Condições"
+            theme_text_color: "Custom"
+            text_color: "#777777"
+            pos_hint: {'center_x': .45, 'center_y': .382}
+            font_size: "13dp"
+        MDTextButton:
+            size_hint_x: .88
+            size_hint_y: .07
+            text: 'Cadastrar-se'
+            theme_text_color: 'Custom'
+            text_color: "#ffffff"
+            md_bg_color: "#fea625"
+            pos_hint: {'center_x': .5,'center_y': .28}
+            font_size: '15.5dp'
+            valign: 'center'
+            halign: 'center'
+            elevation: 0
+            on_release: root.cadastrar_usuario(telefone.text,senha.text,nome.text,check.active)
+        MDLabel:
+            text: ""
+            md_bg_color: "#fea625"
+            pos_hint: {'center_y':.0}
+            size_hint: 1, .17
+        MDRectangleFlatIconButton:
+            icon: 'chevron-left'
+            text: "Voltar"
+            text_color: "#ffffff"
+            icon_color: "#ffffff"
+            font_size: '16dp'
+            icon_size: '23dp'
+            halign: 'center'
+            size_hint: .26, .085
+            line_color: 0, 0, 0, 0
+            pos_hint: {'center_y':.043,'center_x':.13}
+            on_release: root.voltar_tela()
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#fea625"
+            pos_hint: {'center_y':.137,'center_x':.55}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#777777"
+            pos_hint: {'center_y':.137,'center_x':.5}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#fea625"
+            pos_hint: {'center_y':.137,'center_x':.45}
+

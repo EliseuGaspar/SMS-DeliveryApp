@@ -1,0 +1,28 @@
+{
+    "mensagens": [
+        {
+            "data": "2023-08-24",
+            "destinatario": "+244923494651",
+            "hora": "08:00",
+            "id": 23,
+            "mensagem": "Ol\u00e1!",
+            "usuario": "937702795"
+        },
+        {
+            "data": "2023-08-24",
+            "destinatario": "+244923494600",
+            "hora": "08:00",
+            "id": 24,
+            "mensagem": "Ol\u00e1!",
+            "usuario": "937702795"
+        },
+        {
+            "data": "2023-08-25",
+            "destinatario": "+244937702795",
+            "hora": "10:30",
+            "id": 26,
+            "mensagem": "Ol\u00e1 Mundos!",
+            "usuario": "937702795"
+        }
+    ]
+}

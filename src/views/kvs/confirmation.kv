@@ -1,0 +1,137 @@
+<Confirmation>:
+    name: 'Confirmation'
+    md_bg_color: "#ffffff"
+    FloatLayout:
+        # Aqui Temos a estrutura do Header
+        MDLabel:
+            pos_hint: {'center_x': .5,'center_y': .92}
+            text: "Confirmar cadastro"
+            halign: "left"
+            color: "#ff7900"
+            font_size: "19dp"
+        # Apartir daqui comeca o formulário
+        MDLabel:
+            pos_hint: {'center_y': .77}
+            size_hint_x: 1
+            text: "Insira o código enviado para o seu número"
+            halign: "center"
+            color: "#777777"
+            font_size: "20dp"
+        MDLabel:
+            id: contador
+            pos_hint: {'center_y': .69}
+            size_hint_x: 1
+            text: "O código expira em: 05:00"
+            halign: "center"
+            color: "#777777"
+            font_size: "17dp"
+        MDTextField:
+            id: c1
+            text: c1.text[:1] if not c1.text[:1].lower() in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'] else ''
+            pos_hint: {'center_x':.17,'center_y':.57}
+            max_text_length: '1'
+            size_hint_x: .15
+            valign: 'center'
+            halign: 'center'
+            font_size: '23dp'
+            text_color_normal: '#777777'
+            line_color_normal: '#fea625'
+        MDTextField:
+            id: c2
+            text: c2.text[:1] if not c2.text[:1].lower() in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'] else ''
+            focus: True if len(c1.text) == 1 else False
+            pos_hint: {'center_x':.385,'center_y':.57}
+            max_text_length: '1'
+            size_hint_x: .15
+            valign: 'center'
+            halign: 'center'
+            font_size: '23dp'
+            text_color_normal: '#777777'
+            line_color_normal: '#fea625'
+        MDTextField:
+            id: c3
+            text: c3.text[:1] if not c3.text[:1].lower() in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'] else ''
+            focus: True if len(c2.text) == 1 else False
+            pos_hint: {'center_x':.615,'center_y':.57}
+            max_text_length: '1'
+            size_hint_x: .15
+            valign: 'center'
+            halign: 'center'
+            font_size: '23dp'
+            text_color_normal: '#777777'
+            line_color_normal: '#fea625'
+        MDTextField:
+            id: c4
+            text: c4.text[:1] if not c4.text[:1].lower() in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'] else ''
+            focus: True if len(c3.text) == 1 else False
+            pos_hint: {'center_x':.82,'center_y':.57}
+            max_text_length: '1'
+            size_hint_x: .15
+            valign: 'center'
+            halign: 'center'
+            font_size: '23dp'
+            text_color_normal: '#777777'
+            line_color_normal: '#fea625'
+        MDTextButton:
+            text: 'Confirmar'
+            theme_text_color: 'Custom'
+            text_color: '#ffffff'
+            theme_bg_color: 'Custom'
+            md_bg_color: '#ff7900'
+            halign: 'center'
+            size_hint_x: .8
+            size_hint_y: .07
+            pos_hint: {'center_x':.5,'center_y':.4}
+            on_release: root.confirmar_conta()
+        MDLabel:
+            text: "----------------- Não recebi o código -----------------"
+            color: "#777777"
+            pos_hint: {'center_x': .5,'center_y': .31}
+            font_size: '15.5dp'
+            halign: 'center'
+        MDTextButton:
+            size_hint_x: .3
+            size_hint_y: .06
+            text: 'Reenviar Código'
+            theme_text_color: 'Custom'
+            text_color: "#ffffff"
+            md_bg_color: "#fea625"
+            pos_hint: {'center_x': .5,'center_y': .22}
+            font_size: '15.5dp'
+            valign: 'center'
+            halign: 'center'
+            elevation: 0
+            on_release: root.pedir_novo_envio()
+        # Apartir daqui comeca o footer
+        MDLabel:
+            text: ""
+            md_bg_color: "#fea625"
+            pos_hint: {'center_y':.0}
+            size_hint: 1, .17
+        MDRectangleFlatIconButton:
+            icon: 'exit-run'
+            text: "Sair"
+            text_color: "#ffffff"
+            icon_color: "#ffffff"
+            font_size: '16dp'
+            icon_size: '23dp'
+            halign: 'center'
+            size_hint: .26, .085
+            line_color: 0, 0, 0, 0
+            pos_hint: {'center_y':.043,'center_x':.13}
+            on_release: root.fechar_app()
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#777777"
+            pos_hint: {'center_y':.137,'center_x':.55}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#fea625"
+            pos_hint: {'center_y':.137,'center_x':.5}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#fea625"
+            pos_hint: {'center_y':.137,'center_x':.45}

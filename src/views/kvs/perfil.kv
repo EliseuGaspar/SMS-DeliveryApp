@@ -1,0 +1,120 @@
+<Perfil>:
+    name:'perfil'
+    md_bg_color: "#ffffff"
+    FloatLayout:
+    # Aqui Temos a estrutura do Header
+        MDLabel:
+            pos_hint: {'center_x': .55,'center_y': .92}
+            text: "Seu Perfil"
+            halign: "left"
+            color: "#ff7900"
+            font_size: "19dp"
+        MDIconButton:
+            icon: 'account-cancel'
+            pos_hint: {'center_y':.9225,'center_x':.89}
+            theme_icon_color: "Custom"
+            icon_color: "#ff7900"
+            ripple_color: "#ffffff"
+            focus_color: "#ff7900"
+            icon_size: "23dp"
+            focus_behavior: False
+            _no_ripple_effect: True
+            on_release: root.alerta_apagar_conta()
+        MDLabel:
+            pos_hint: {'center_x': .5,'center_y': .79}
+            text: "Hora de uma mudança?"
+            halign: "center"
+            color: "#fea625"
+            font_size: "16dp"
+        MDTextField:
+            id: nome
+            pos_hint: {'center_x': .5,'center_y': .66}
+            size_hint_x: .75
+            line_color_normal: '#fea625'
+            line_color_focus: '#fea625'
+            theme_icon_color: 'Custom'
+            icon_left: 'account-outline'
+            icon_left_color_normal: '#ffffff'
+            icon_left_color_focus: '#ffffff'
+            text_color_normal: '#fea625'
+            padding: 0, 0, 0, '30dp'
+            valign: 'top'
+            font_size: '16.6dp'
+        MDIconButton: # Icone de enfeite para o textfield.telefone
+            icon: 'account-outline'
+            theme_icon_color: 'Custom'
+            icon_color: '#fea625'
+            pos_hint: {'right': .23,'center_y': .66}
+            on_release: nome.focus = True
+        MDTextField:
+            id: senha
+            pos_hint: {'center_x': .5,'center_y': .53}
+            size_hint_x: .75
+            line_color_normal: '#fea625'
+            line_color_focus: '#fea625'
+            theme_icon_color: 'Custom'
+            icon_left: 'key-variant'
+            icon_left_color_normal: '#ffffff'
+            icon_left_color_focus: '#ffffff'
+            text_color_normal: '#fea625'
+            padding: 0, 0, 0, '30dp'
+            valign: 'top'
+            font_size: '16.6dp'
+        MDIconButton: # Icone de enfeite para o textfield.telefone
+            icon: 'key-variant'
+            theme_icon_color: 'Custom'
+            icon_color: '#fea625'
+            pos_hint: {'right': .23,'center_y': .53}
+            on_release: senha.focus = True
+        MDTextField:
+            id: telefone
+            pos_hint: {'center_x': .5,'center_y': .39}
+            size_hint_x: .75
+            line_color_normal: '#fea625'
+            line_color_focus: '#fea625'
+            theme_icon_color: 'Custom'
+            icon_left: 'cellphone'
+            icon_left_color_normal: '#ffffff'
+            icon_left_color_focus: '#ffffff'
+            text_color_normal: '#fea625'
+            padding: 0, 0, 0, '30dp'
+            valign: 'top'
+            font_size: '16.6dp'
+        MDIconButton: # Icone de enfeite para o textfield.telefone
+            icon: 'cellphone'
+            theme_icon_color: 'Custom'
+            icon_color: '#fea625'
+            pos_hint: {'right': .23,'center_y': .39}
+            on_release: telefone.focus = True
+        MDTextButton:
+            size_hint_x: .75
+            size_hint_y: .07
+            text: 'Guardar'
+            theme_text_color: 'Custom'
+            text_color: "#ffffff"
+            md_bg_color: "#fea625"
+            pos_hint: {'center_x': .5,'center_y': .24}
+            font_size: '15.5dp'
+            valign: 'center'
+            halign: 'center'
+            elevation: 0
+            on_release: root.salvar_alteracoes(nome.text,senha.text,telefone.text)
+        MDLabel:
+            text: ""
+            md_bg_color: "#fea625"
+            halign: "center"
+            pos_hint: {'center_y':.0}
+            size_hint: 1, .17
+        MDRectangleFlatIconButton:
+            icon: 'chevron-left'
+            text: "Voltar"
+            theme_text_color: 'Custom'
+            theme_icon_color: 'Custom'
+            text_color: "#ffffff"
+            icon_color: "#ffffff"
+            font_size: '16dp'
+            halign: 'center'
+            size_hint: .28, .085
+            line_color: 0, 0, 0, 0
+            pos_hint: {'center_y':.043,'center_x':.15}
+            on_release: root.tela_tarefas()

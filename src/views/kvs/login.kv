@@ -1,0 +1,153 @@
+<Login>:
+    name: 'Login'
+    md_bg_color: "#ffffff"
+    FloatLayout:
+        # Aqui Temos a estrutura do Header
+        MDLabel:
+            pos_hint: {'center_x': .55,'center_y': .92}
+            text: "Acessar Conta"
+            halign: "left"
+            color: "#ff7900"
+            font_size: "19dp"
+        # Apartir daqui comeca o formulário
+        MDLabel:
+            size_hint_x: 1
+            pos_hint: {'center_y': .83}
+            text: "Olá! Vamos logar?"
+            halign: "center"
+            color: "#ff7900"
+            font_size: "17.7dp"
+        MDLabel:
+            text: "Nº Telefone"
+            color: "#fea625"
+            font_size: "13.7dp"
+            pos_hint: {'center_x': .56,'center_y': .75}
+        MDLabel:
+            md_bg_color: "#fea725a9"
+            size_hint_x: .88
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': .49,'center_y': .68}
+        MDIcon:
+            icon: 'cellphone'
+            theme_icon_color: 'Custom'
+            color: '#fea625'
+            pos_hint: {'center_x': .1,'center_y': .68}
+        MDTextField:
+            id: telefone
+            pos_hint: {'center_x': .53,'center_y': .68}
+            size_hint_x: .78
+            size_hint_y: None
+            theme_bg_color: "Custom"
+            max_text_length: 9
+            max_length_text_color: "#fea625"
+            text_color_focus: "#ffffff"
+            text_color_normal: "#ffffff"
+            line_color_focus: "#fea725a9"
+            line_color_normal: "#fea725a9"
+            radius: 0, 0, 0, 0
+            font_size: "16dp"
+            mode: "line"
+            active_line: False
+        MDLabel:
+            text: "Password"
+            color: "#fea625"
+            font_size: "13.7dp"
+            pos_hint: {'center_x': .56,'center_y': .6}
+        MDLabel:
+            md_bg_color: "#fea725a9"
+            size_hint_x: .88
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': .49,'center_y': .53}
+        MDIcon:
+            icon: 'lock-outline'
+            theme_icon_color: 'Custom'
+            color: '#fea625'
+            pos_hint: {'center_x': .1,'center_y': .53}
+        MDTextField:
+            id: senha
+            pos_hint: {'center_x': .53,'center_y': .53}
+            size_hint_x: .78
+            size_hint_y: None
+            theme_bg_color: "Custom"
+            max_length_text_color: "#fea625"
+            text_color_focus: "#ffffff"
+            text_color_normal: "#ffffff"
+            line_color_focus: "#fea725a9"
+            line_color_normal: "#fea725a9"
+            radius: 0, 0, 0, 0
+            font_size: "16dp"
+            password: True
+            mode: "line"
+            active_line: False
+        MDTextButton:
+            text: "Esqueceu a senha?"
+            color: "#fea625"
+            font_size: '15.5dp'
+            pos_hint: {'center_y':.465,'center_x':.76}
+        MDTextButton:
+            size_hint_x: .88
+            size_hint_y: .07
+            text: 'Conectar-se'
+            theme_text_color: 'Custom'
+            text_color: "#ffffff"
+            md_bg_color: "#fea625"
+            pos_hint: {'center_x': .5,'center_y': .37}
+            font_size: '15.5dp'
+            valign: 'center'
+            halign: 'center'
+            elevation: 0
+            on_release: root.login(telefone.text,senha.text)
+        MDLabel:
+            text: "----------------- Não tenho uma conta -----------------"
+            color: "#777777"
+            pos_hint: {'center_x': .5,'center_y': .28}
+            font_size: '15.5dp'
+            halign: 'center'
+        MDTextButton:
+            size_hint_x: .3
+            size_hint_y: .06
+            text: 'Criar uma conta'
+            theme_text_color: 'Custom'
+            text_color: "#ffffff"
+            md_bg_color: "#fea625"
+            pos_hint: {'center_x': .5,'center_y': .21}
+            font_size: '15.5dp'
+            valign: 'center'
+            halign: 'center'
+            elevation: 0
+            on_release: root._tela_criar_conta()
+        MDLabel:
+            text: ""
+            md_bg_color: "#fea625"
+            pos_hint: {'center_y':.0}
+            size_hint: 1, .17
+        MDRectangleFlatIconButton:
+            icon: 'chevron-left'
+            text: "Voltar"
+            text_color: "#ffffff"
+            icon_color: "#ffffff"
+            font_size: '16dp'
+            icon_size: '23dp'
+            halign: 'center'
+            size_hint: .26, .085
+            line_color: 0, 0, 0, 0
+            pos_hint: {'center_y':.043,'center_x':.13}
+            on_release: root.voltar_tela()
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#fea625"
+            pos_hint: {'center_y':.137,'center_x':.55}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#777777"
+            pos_hint: {'center_y':.137,'center_x':.5}
+        MDIcon:
+            icon: 'circle-medium'
+            theme_icon_color: "Custom"
+            color: "#fea625"
+            pos_hint: {'center_y':.137,'center_x':.45}
+

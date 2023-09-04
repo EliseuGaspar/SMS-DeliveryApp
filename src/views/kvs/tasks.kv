@@ -1,0 +1,212 @@
+<Tasks>:
+    name: 'Tarefas'
+    md_bg_color: '#ffffff'
+    FloatLayout:
+        id: body
+        # Apartir daqui comeca a parte das listas
+        ScrollView:
+            pos_hint: {'top':.9}
+            MDList:
+                id: box
+                spacing: '10dp'
+        # Aqui comeca o header
+        MDLabel:
+            text: 'SMS Pendentes'
+            color: "#fea625"
+            md_bg_color: "#ffffff"
+            halign: 'center'
+            font_size: '17.5dp'
+            pos_hint: {'center_x':.5,'center_y':.93}
+            size_hint_y: .27
+        MDIconButton:
+            icon: 'menu'
+            theme_icon_color: 'Custom'
+            _no_ripple_effect: True
+            icon_color: '#fea625'
+            font_size: '15dp'
+            pos_hint: {'center_x': .15,'center_y': .93}
+            on_release: menubar.set_state('open')
+        MDIconButton:
+            icon: 'tooltip-edit-outline'
+            theme_icon_color: 'Custom'
+            _no_ripple_effect: True
+            icon_color: '#fea625'
+            font_size: '15dp'
+            pos_hint: {'center_x': .85,'center_y': .93}
+            on_release: root.tela_criar_mensagem()
+        MDTextButton:
+            text: 'Recentes'
+            theme_text_color: 'Custom'
+            md_bg_color: '#fea625'
+            text_color: '#ffffff'
+            font_size: '14dp'
+            halign: 'center'
+            pos_hint: {'center_y': .82}
+            size_hint: .5, .057
+        MDTextButton:
+            text: 'Histórico'
+            theme_text_color: 'Custom'
+            md_bg_color: '#eeeeee'
+            text_color: '#777777'
+            font_size: '14dp'
+            halign: 'center'
+            pos_hint: {'center_x': .75,'center_y': .82}
+            size_hint: .5, .057
+        MDNavigationDrawer:
+            radius: (0, 0, 0, 0)
+            padding: 0,0,0,0
+            md_bg_color: '#fea625'
+            text_color: '#f8f8f8'
+            scrim_color: 0, 0, 0, 1
+            type: "modal"
+            id: menubar
+            MDNavigationDrawerMenu:
+                MDNavigationDrawerHeader:
+                    title: "Delivery SMS"
+                    title_color: "#f9f9f9"
+                    text_color: "#f9f9f9"
+                    text: "Agende Envios de Mensagens"
+                    title_font_style: 'H6'
+                    text_font_style: 'Caption'
+                    text_font_size: '13dp'
+                    padding: '18dp', '3dp' , 0 , '3.5dp'
+                    spacing: "30dp"
+                MDNavigationDrawerDivider:
+                    color: "#ffffff"
+                    pos_hint: {'right':.0}
+                    size_hint_x: 1
+                    padding: 0, '7dp', 0, '7dp'
+                MDNavigationDrawerItem:
+                    icon: "plus"
+                    text: "Agendar nova SMS"
+                    text_color: "#f9f9f9"
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: False
+                    text_font_style: "Caption"
+                    on_release: root.tela_criar_mensagem()
+                MDNavigationDrawerItem:
+                    icon: "update"
+                    text: "Atualizar Delivery"
+                    text_color: "#f9f9f9"
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: False
+                    on_release: pass
+                MDNavigationDrawerItem:
+                    icon: "account-circle-outline"
+                    text: "Minha conta Delivery"
+                    text_color: "#f9f9f9"
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: False
+                    on_release: root.tela_perfil()
+                MDNavigationDrawerItem:
+                    icon: "phone-outline"
+                    text: "Meus Contactos"
+                    text_color: "#f9f9f9"
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: False
+                    on_release: root.tela_contactos()
+                MDNavigationDrawerLabel:
+                    padding: '-110dp','-60dp',0,'5dp'
+                    MDLabel:
+                        text: "Sobre Delivery SMS"
+                        font_style: "Body1"
+                        theme_text_color: "Custom"
+                        text_color: "#fea625"
+                        md_bg_color: "#dddddd"
+                        size_hint_x: .8
+                        size_hint_y: .4
+                        padding: '18dp', 0 , 0 , 0
+                MDNavigationDrawerItem:
+                    icon: "information-outline"
+                    text: "+ Informações"
+                    text_color: "#f9f9f9"
+                    text_font_size: '5dp'
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: True
+                MDNavigationDrawerItem:
+                    icon: "web"
+                    text: "Delivery Suporte"
+                    text_color: "#f9f9f9"
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: True
+                    on_release: root.abrir_site()
+                MDNavigationDrawerItem:
+                    icon: "window-close"
+                    text: "Fechar Delivery"
+                    text_color: "#f9f9f9"
+                    icon_color: "#f9f9f9"
+                    focus_color: "#fea625"
+                    selected_color: "#f9f9f9"
+                    ripple_color: "#fea625"
+                    focus_behavior: False
+                    _no_ripple_effect: True
+                    on_release: root.fechar_app()
+
+<DialogoEditarTarefa>
+    orientation: "vertical"
+    size_hint_y: None
+    height: "170dp"
+    MDTextField:
+        hint_text: "Mensagem"
+        helper_text: "Mensagens vazias não são enviadas..."
+        helper_text_mode: "on_focus"
+        pos_hint: {'center_y':.94,'center_x':.5}
+        text: "Oí como é que estás?"
+        size_hint_y: None
+        max_height: "70dp"
+        multiline: True
+        required: True
+        line_color_normal: '#fea625'
+        text_color_normal: '#fea625'
+        id: mensagem
+
+    MDTextField:
+        hint_text: "Destinatário"
+        helper_text_mode: "on_focus"
+        helper_text: "Precisa ser um número válido(937123456)"
+        pos_hint: {'center_y':.58,'center_x':.5}
+        text: f"{root.infos('tel')}"
+        max_text_length: 9
+        line_color_normal: '#fea625'
+        text_color_normal: '#fea625'
+        id: destinatario
+        required: True
+
+    MDRectangleFlatIconButton:
+        id: data
+        text: "Selecione a Data"
+        theme_text_color: "Custom"
+        text_color: "#fea625"
+        line_color: "#fea625"
+        theme_icon_color: "Custom"
+        icon_color: "#fea525"
+        icon: "calendar-blank"
+        size_hint_x: 1
+        halign: 'left'
+        spacing: "3dp"
+        on_release: root.open_calendario()
+        pos_hint: {'center_y':.17,'center_x':.5}

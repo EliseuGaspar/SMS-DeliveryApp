@@ -1,0 +1,183 @@
+<EditTasks>
+    name: 'editar_tarefas'
+    md_bg_color: '#ffffff'
+    FloatLayout:
+        ##########################################################
+        #*          Aqui Temos a estrutura do Header            *#
+        ##########################################################
+        MDLabel:
+            pos_hint: {'center_x': .55,'center_y': .92}
+            text: "Editar Mensagem"
+            halign: "left"
+            color: "#ff7900"
+            font_size: "19dp"
+        MDIconButton:
+            icon: 'delete-outline'
+            theme_icon_color: 'Custom'
+            icon_color: '#ff7900'
+            pos_hint: {'right': 0.94,'center_y': .92}
+            on_release: root.alerta_apagar_mensagem()
+        ##########################################################
+        #*          Apartir daqui comeca o formulário           *#
+        ##########################################################
+        #*--------------------------------------------------------
+        #* Sessão Telefone
+        #*--------------------------------------------------------
+        MDLabel:
+            text: 'Destinatário'
+            color: '#fea625'
+            font_size: '16dp'
+            pos_hint: {'center_x': .55,'center_y': .81}
+        MDTextField:
+            id: telefone
+            size_hint_x: .85
+            pos_hint: {'center_x': .495, 'center_y': .752}
+            line_color_normal: '#fea625'
+            line_color_focus: '#fea625'
+            text_color_normal: '#fea625'
+            text_color_focus: '#fea625'
+            max_text_length: '9'
+            line_color_normal: '#fea625'
+            line_color_focus: '#fea625'
+            theme_icon_color: 'Custom'
+            icon_left: 'cellphone'
+            icon_left_color_normal: '#ffffff'
+            icon_left_color_focus: '#ffffff'
+            padding: 0, 0, 0, '30dp'
+            valign: 'top'
+            font_size: '16.6dp'
+        MDIconButton: # Icone de enfeite para o textfield.telefone
+            icon: 'cellphone'
+            theme_icon_color: 'Custom'
+            icon_color: '#fea625'
+            pos_hint: {'right': 0.17,'center_y': .752}
+            on_release: telefone.focus = True
+        MDIconButton:
+            icon: 'plus-box'
+            theme_icon_color: 'Custom'
+            icon_color: '#fea625'
+            pos_hint: {'right': 0.94,'center_y': .756}
+            on_release: root.adicionar_numero(telefone.text)
+        MDChip:
+            id: tel1
+            text: '+244 ??? ??? ???'
+            icon_left: 'phone'
+            icon_size: '5sp'
+            icon_left_color: '#fea625' if tel1.select == False else '#ffffff'
+            padding: 0, 0, 0, 0
+            theme_text_color: 'Custom'
+            text_color: '#fea625' if tel1.select == False else '#ffffff'
+            pos_hint: {'center_x': .495,'center_y': .645}
+            radius: '8dp', '1dp', '8dp', '1dp'
+            md_bg_color: '#ffffff' if tel1.select == False else '#fea625'
+            line_color: '#fea625'
+            font_size: '1sp'
+            size_hint: .85, .05
+            select: False
+            on_release: root.marcar_chips(tel1)
+        #*--------------------------------------------------------
+        #* Sessão Mensagem
+        #*--------------------------------------------------------
+        MDLabel:
+            text: 'Mensagem'
+            color: '#fea625'
+            font_size: '16dp'
+            pos_hint: {'center_x': .55,'center_y': .555}
+        MDTextField:
+            id: mensagem
+            size_hint_x: .87
+            size_hint_y: .17
+            max_height: '90dp'
+            pos_hint: {'center_x': .487, 'center_y': .435}
+            line_color_normal: '#fea625'
+            line_color_focus: '#fea625'
+            fill_color_normal: '#ffffff'
+            fill_color_focus: '#ffffff'
+            text_color_normal: '#fea625'
+            text_color_focus: '#fea625'
+            radius: 0, 0, 0, 0
+            active_line: False
+            multiline: True
+            mode: 'rectangle'
+        #*--------------------------------------------------------
+        #* Sessão Hora e Data
+        #*--------------------------------------------------------
+        MDLabel:
+            text: 'Data & Hora'
+            color: '#fea625'
+            font_size: '16dp'
+            pos_hint: {'center_x': .55,'center_y': .3}
+        MDRectangleFlatIconButton:
+            id: data
+            text: root.info('data')
+            halign: 'center'
+            md_bg_color: '#ffffff'
+            theme_text_color: "Custom"
+            text_color: "#fea625"
+            line_color: "#fea625"
+            theme_icon_color: "Custom"
+            icon_color: "#fea625"
+            icon: "calendar-blank"
+            size_hint_x: .4
+            halign: 'left'
+            spacing: "3dp"
+            on_release: root.abrir_data()
+            pos_hint: {'center_y':.22,'center_x':.26}
+        MDRectangleFlatIconButton:
+            id: hora
+            text: root.info('hora')
+            halign: 'center'
+            md_bg_color: '#ffffff'
+            theme_text_color: "Custom"
+            text_color: "#fea625"
+            line_color: "#fea625"
+            theme_icon_color: "Custom"
+            icon_color: "#fea625"
+            icon: "clock-outline"
+            size_hint_x: .41
+            halign: 'left'
+            spacing: "3dp"
+            on_release: root.abrir_hora()
+            pos_hint: {'center_y':.22,'center_x':.71}
+        ##########################################################
+        #*             Apartir daqui começa o Footer            *#
+        ##########################################################
+        MDLabel:
+            text: ""
+            md_bg_color: "#fea625"
+            halign: "center"
+            pos_hint: {'center_y':.0}
+            size_hint: 1, .17
+        MDTextButton:
+            text: "Guardar"
+            color: "#ffffff"
+            font_size: '16dp'
+            halign: 'left'
+            size_hint: .27, .085
+            pos_hint: {'center_y':.043,'center_x':.87}
+            on_release: root.salvar_alteracoes(tel1.text,mensagem.text,data.text,hora.text)
+        MDRectangleFlatIconButton:
+            icon: 'window-close'
+            text: "Cancelar"
+            theme_text_color: 'Custom'
+            theme_icon_color: 'Custom'
+            text_color: "#ffffff"
+            icon_color: "#ffffff"
+            font_size: '16dp'
+            halign: 'center'
+            size_hint: .28, .085
+            line_color: 0, 0, 0, 0
+            pos_hint: {'center_y':.043,'center_x':.15}
+            on_release: root.voltar_tela_mensagens()
+        MDIconButton:
+            icon: 'content-save-outline'
+            pos_hint: {'center_y':.044,'center_x':.93}
+            theme_icon_color: "Custom"
+            icon_color: "#ffffff"
+            ripple_color: "#fea625"
+            focus_color: "#fea625"
+            icon_size: "23dp"
+            focus_behavior: False
+            _no_ripple_effect: True
+            on_release: root.salvar_alteracoes(tel1.txt,mensagem.text,data.text,hora.text)
+
